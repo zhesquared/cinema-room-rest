@@ -1,9 +1,11 @@
 package eugeny.borisov.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 import java.util.UUID;
 
+@Getter
 public class Ticket {
     @JsonProperty("token")
     private String token;
@@ -13,13 +15,5 @@ public class Ticket {
     public Ticket(Seat seat) {
         this.token = UUID.randomUUID().toString();
         this.ticket = seat;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public Seat getTicket() {
-        return ticket;
     }
 }

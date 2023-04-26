@@ -3,10 +3,14 @@ package eugeny.borisov.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 
 import java.util.*;
 
+@Getter
+@Setter
 public class CinemaRoom {
 
     @JsonPropertyOrder({"total_rows", "total_columns", "available_seats"})
@@ -29,32 +33,8 @@ public class CinemaRoom {
         }
     }
 
-    public int getTotalRows() {
-        return totalRows;
-    }
-
-    public void setTotalRows(int totalRows) {
-        this.totalRows = totalRows;
-    }
-
-    public int getTotalColumns() {
-        return totalColumns;
-    }
-
-    public void setTotalColumns(int totalColumns) {
-        this.totalColumns = totalColumns;
-    }
-
     public void deleteFromAvailableSeats(Seat seat) {
         this.availableSeats.remove(seat);
-    }
-
-    public List<Seat> getAvailableSeats() {
-        return availableSeats;
-    }
-
-    public void setAvailableSeats(List<Seat> availableSeats) {
-        this.availableSeats = availableSeats;
     }
 
     public ResponseEntity purchase(Seat seat) {
