@@ -6,11 +6,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Getter
 @Setter
+@Component
 public class CinemaRoom {
 
     @JsonPropertyOrder({"total_rows", "total_columns", "available_seats"})

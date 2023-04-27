@@ -2,6 +2,7 @@ package eugeny.borisov.controller;
 
 import eugeny.borisov.model.CinemaRoom;
 import eugeny.borisov.model.Seat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/")
 public class CinemaController {
-    CinemaRoom cinema = new CinemaRoom();
+
+    @Autowired
+    private CinemaRoom cinema;
 
     @GetMapping("seats")
     public CinemaRoom getCinema() {
